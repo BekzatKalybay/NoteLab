@@ -117,19 +117,23 @@ func create(_ note: Note) throws {
     ref.child(note.id).setValue(dict)
 }
 ```
-📊 Comparison
+
+## 📊 Comparison
 Storage	Features	Migration	Sync
 SQLite	Lightweight, full SQL control	manual	❌
 Core Data	Apple-native, integrated with iOS	built-in	❌
 Realm	Simple API, reactive collections	built-in	❌
 Firebase	Cloud sync, offline cache	SDK-based	✅
-📦 Requirements
+
+## 📦 Requirements
 iOS 15+
 Xcode 15+
 Swift 5.9+
-📚 Extras
+
+## 📚 Extras
 Add unit tests to benchmark CRUD performance across storages.
 Configure Firebase security rules for production (restrict by user UID).
-👨‍💻 Author
+
+## 👨‍💻 Author
 Project created for learning and interview demonstration.
 Author: Bekzat Kalybayev
