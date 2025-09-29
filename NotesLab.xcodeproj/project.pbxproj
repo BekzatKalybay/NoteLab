@@ -6,13 +6,32 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		41916FA82E89994B00365667 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 41916FA72E89994B00365667 /* RealmSwift */; };
+		41916FAE2E89AEA900365667 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 41916FAD2E89AEA900365667 /* FirebaseCore */; };
+		41916FB02E89AEA900365667 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 41916FAF2E89AEA900365667 /* FirebaseDatabase */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		41916F4F2E88489B00365667 /* NotesLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		41916FA92E89A51900365667 /* Exceptions for "NotesLab" folder in "NotesLab" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				NotesModel.xcdatamodeld,
+			);
+			target = 41916F4E2E88489B00365667 /* NotesLab */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		41916F512E88489B00365667 /* NotesLab */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				41916FA92E89A51900365667 /* Exceptions for "NotesLab" folder in "NotesLab" target */,
+			);
 			path = NotesLab;
 			sourceTree = "<group>";
 		};
@@ -23,6 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41916FB02E89AEA900365667 /* FirebaseDatabase in Frameworks */,
+				41916FAE2E89AEA900365667 /* FirebaseCore in Frameworks */,
+				41916FA82E89994B00365667 /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +87,9 @@
 			);
 			name = NotesLab;
 			packageProductDependencies = (
+				41916FA72E89994B00365667 /* RealmSwift */,
+				41916FAD2E89AEA900365667 /* FirebaseCore */,
+				41916FAF2E89AEA900365667 /* FirebaseDatabase */,
 			);
 			productName = NotesLab;
 			productReference = 41916F4F2E88489B00365667 /* NotesLab.app */;
@@ -94,6 +119,10 @@
 			);
 			mainGroup = 41916F462E88489B00365667;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				41916FA62E89994B00365667 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				41916FAC2E89AEA900365667 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 41916F502E88489B00365667 /* Products */;
 			projectDirPath = "";
@@ -266,12 +295,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = bekzat.kalybayev.app.NotesLab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -297,12 +330,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = bekzat.kalybayev.app.NotesLab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -328,6 +365,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		41916FA62E89994B00365667 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.49.0;
+			};
+		};
+		41916FAC2E89AEA900365667 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		41916FA72E89994B00365667 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41916FA62E89994B00365667 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		41916FAD2E89AEA900365667 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41916FAC2E89AEA900365667 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		41916FAF2E89AEA900365667 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41916FAC2E89AEA900365667 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 41916F472E88489B00365667 /* Project object */;
 }
