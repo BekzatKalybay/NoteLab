@@ -15,7 +15,7 @@ It provides implementations of CRUD operations (Create, Read, Update, Delete), b
 
 ---
 
-## 🏗 Architecture
+🏗 Architecture
 - **SwiftUI** for UI
 - **AppState** manages the selected storage (`StorageKind`)
 - **NotesRepository** protocol defines the storage interface
@@ -27,7 +27,7 @@ It provides implementations of CRUD operations (Create, Read, Update, Delete), b
 
 ---
 
-## 📂 Project Structure
+📂 Project Structure
 NotesLab/
 ├── App/
 │ ├── NotesLabApp.swift
@@ -45,6 +45,7 @@ NotesLab/
 │ └── SettingsView.swift
 └── Assets/
 
+
 ---
 
 ## 🚀 Getting Started
@@ -53,6 +54,7 @@ NotesLab/
 ```bash
 git clone https://github.com/yourname/NotesLab.git
 cd NotesLab
+```
 ### 2. Dependencies
 This project uses Swift Package Manager:
 Realm → https://github.com/realm/realm-swift
@@ -65,8 +67,7 @@ Register your iOS app (Bundle ID = your app’s identifier from Xcode).
 Download GoogleService-Info.plist and add it to the Xcode project (target NotesLab).
 In Firebase Console, enable Realtime Database → Start in test mode (for development).
 FirebaseApp.configure() is already called in NotesLabApp.swift.
-
-##🛠 Usage
+## 🛠 Usage
 Settings → choose storage backend (SQLite / Core Data / Realm / Firebase)
 Notes List:
 ➕ add note
@@ -78,6 +79,7 @@ Realtime sync across devices
 Offline support with automatic resync
 🔑 CRUD Examples (Create)
 SQLite
+```bash
 func create(_ n: Note) throws {
     let sql = "INSERT OR REPLACE INTO notes(id,title,body,updatedAt,isPinned) VALUES(?,?,?,?,?)"
     let stmt = try prepare(sql)
@@ -89,7 +91,9 @@ func create(_ n: Note) throws {
     sqlite3_bind_int(stmt, 5, n.isPinned ? 1 : 0)
     guard sqlite3_step(stmt) == SQLITE_DONE else { throw lastError("insert") }
 }
+```
 Core Data
+```bash
 func create(_ n: Note) throws {
     let entity = NoteEntity(context: ctx)
     entity.id = n.id
@@ -99,20 +103,9 @@ func create(_ n: Note) throws {
     entity.isPinned = n.isPinned
     try ctx.save()
 }
+```
 Realm
-func create(_ n: Note) throws {
-    let realm = try Realm()
-    let obj = NoteObject()
-    obj.id = n.id
-    obj.title = n.title
-    obj.body = n.body
-    obj.updatedAt = n.updatedAt
-    obj.isPinned = n.isPinned
-    try realm.write {
-        realm.add(obj, update: .all)
-    }
-}
-Firebase Realtime Database
+```bash
 func create(_ note: Note) throws {
     let dict: [String: Any] = [
         "id": note.id,
@@ -123,19 +116,20 @@ func create(_ note: Note) throws {
     ]
     ref.child(note.id).setValue(dict)
 }
-## 📊 Comparison
+```
+📊 Comparison
 Storage	Features	Migration	Sync
 SQLite	Lightweight, full SQL control	manual	❌
 Core Data	Apple-native, integrated with iOS	built-in	❌
 Realm	Simple API, reactive collections	built-in	❌
 Firebase	Cloud sync, offline cache	SDK-based	✅
-## 📦 Requirements
+📦 Requirements
 iOS 15+
 Xcode 15+
 Swift 5.9+
-## 📚 Extras
+📚 Extras
 Add unit tests to benchmark CRUD performance across storages.
 Configure Firebase security rules for production (restrict by user UID).
-## 👨‍💻 Author
+👨‍💻 Author
 Project created for learning and interview demonstration.
 Author: Bekzat Kalybayev
